@@ -11,9 +11,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import { useRouter } from "next/navigation";
 
 export default function ButtonAppBar() {
   const menuitems = ["Home", "Books", "About"]
+  const router = useRouter();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -38,7 +40,13 @@ export default function ButtonAppBar() {
             </ListItem>
             ))}
           </List>
-          <Button sx={{ marginLeft: "auto" }} color="inherit">Login</Button>
+          <Button
+            sx={{ marginLeft: "auto" }}
+            color="inherit"
+            onClick={() => {router.push("/signin")}}
+          >
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
